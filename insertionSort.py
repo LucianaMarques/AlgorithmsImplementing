@@ -14,7 +14,6 @@ print(A)
 
 
 def insertTerm(term,lista):
-    def insertTerm(term,lista):
     j = 0
     while (j < len(lista) and lista[j] < term):
         j +=1
@@ -42,20 +41,24 @@ def insertionSort(A):
         if (compared < len(A) - 1):
             if (A[compared] > A[compared+1]):
                 sort = A[compared + 1]
-                print("sort ", sort)
-                A[compared+1] = A[compared]
-                print(A[:compared+1])
-                insertTerm(sort, A[0:compared+1])
+                list2 = insertTerm(sort,A[0:compared+1])
+                for i in range (compared+1):
+                    A[i] = list2[i]
+                print(A)
         else:
             sort = A[compared]
             if (sort < A[compared-1]):
                 list2 = insertTerm(sort,A[0:compared+1])
+                for i in range (compared+1):
+                    A[i] = list2[i]
+                print(A)
+    return A
                 
                 
 
-insertionSort(A)
+print(insertionSort(A))
 
-print(A)
+
                 
                 
                     
